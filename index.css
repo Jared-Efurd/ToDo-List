@@ -8,7 +8,7 @@ body {
   margin: 0px;
 }
 
-.dark-theme {
+body.dark-theme {
   background: linear-gradient(0deg,#161616, #2e2e2e);
 }
 
@@ -85,6 +85,8 @@ main {
 .list > header {
   padding: 5px;
   box-shadow: none;
+  display: grid;
+  grid-template-columns: 1fr 30px;
 }
 
 input {
@@ -101,12 +103,13 @@ input {
 .list > header > input {
   font-size: x-large;
   font-weight: bold;
-  width: fit-content;
+  grid-column: 1 / 2;
 }
 
 .list > ul {
   padding: 20px;
   margin: 0px;
+  min-width: 50vw;
 }
 
 .list-entry {
@@ -116,7 +119,8 @@ input {
   margin-bottom: 10px;
   box-shadow: 3px 3px 5px #00000080;
   list-style-position: inside;
-  width: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 30px 30px;
 }
 
 .dark-theme .list-entry {
@@ -128,7 +132,12 @@ input {
 }
 
 .list-entry > input {
-  min-width: 9ch;
+  grid-column: 1 / 2;
+}
+
+.task-completed.list-entry > input {
+  text-decoration: line-through;
+  color:#5f5f5f;
 }
 
 .dark-theme .list-entry > input {
@@ -154,6 +163,27 @@ input {
   background-color: rgb(95, 95, 95);
 }
 
+.complete-task {
+  color: #969696;
+  font-weight: bolder;
+  margin-left: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+}
+
+.complete-task:hover {
+  color: #6ec466;
+  cursor: pointer;
+  background-color: white;
+}
+
+.dark-theme .complete-task:hover {
+  background-color: #5f5f5f;
+}
+
 .remove-list-entry {
   color: #969696;
   font-weight: bolder;
@@ -173,5 +203,5 @@ input {
 }
 
 .dark-theme .remove-list-entry:hover {
-  background-color: rgb(95, 95, 95);
+  background-color: #5f5f5f;
 }
